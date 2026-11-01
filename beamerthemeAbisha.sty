@@ -49,8 +49,10 @@
 %% Blocks
 %% ---------------------------------------------------------------------------
 % Boadilla's `rose' colour theme paints the default `block' in the red
-% `structure' tint. Restyle it to match the green `example' block instead.
-\setbeamercolor{block title}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+% `structure' tint. Give it a distinct muted-plum colour instead, so the three
+% block kinds read as: block (plum), exampleblock (green), alertblock (red).
+\definecolor{abishaplum}{RGB}{96,45,118}
+\setbeamercolor{block title}{fg=abishaplum,bg=abishaplum!20!bg}
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
 
 %% ---------------------------------------------------------------------------

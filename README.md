@@ -71,6 +71,19 @@ still compiles — you get a warning instead of an error.
 The theme calls `\justifying` from `ragged2e` at load time. Add `\raggedright`
 to a frame (or your preamble) if you would rather have ragged-right text.
 
+### Blocks
+
+The three block kinds have distinct, theme-matched tints:
+
+| Environment       | Colour |
+| ----------------- | ------ |
+| `block`           | muted plum |
+| `exampleblock`    | green |
+| `alertblock`      | red |
+
+Recolour any of them from your preamble, e.g.
+`\setbeamercolor{block title}{fg=...,bg=...}`.
+
 ## Repository layout
 
 ```
