@@ -1,0 +1,133 @@
+% !TEX program = pdflatex
+% ---------------------------------------------------------------------------
+% Starter deck for the Abisha beamer theme.
+% Compile from the repository root:  latexmk main.tex
+% ---------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+
+% The theme: colours, fonts, title page, footer.
+\usetheme{Abisha}
+
+% ---------------------------------------------------------------------------
+% Packages
+% ---------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsbsy}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------------
+% Personal math shorthand
+% ---------------------------------------------------------------------------
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\tp}{\mathsf{T}}
+\newcommand{\yhat}{\widehat{y}}
+
+% ---------------------------------------------------------------------------
+% Metadata -- change these four things and start writing
+% ---------------------------------------------------------------------------
+\title[Short Title]{Your Talk Title}
+\subtitle{A subtitle, if you want one}
+\author[Your Name]{Your Name}
+\institute[IPB]{%
+  Program Studi Matematika\\
+  IPB University}
+\date{\today}
+\abishalogo{images/logo_ipb.png}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\section{The Basics}
+
+\begin{frame}{Blocks and lists}
+  \begin{block}{A block}
+    Blocks come in three flavours: \texttt{block}, \texttt{alertblock} and
+    \texttt{exampleblock}.
+  \end{block}
+
+  \begin{itemize}
+    \item<1-> Items appear one at a time.
+    \item<2-> Use \texttt{<2->} or \texttt{\textbackslash pause}.
+    \pause
+    \item This one is revealed \emph{after} the previous two.
+  \end{itemize}
+
+  \begin{alertblock}{Watch out}
+    Overlays inside a block work exactly the same way.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Side by side}
+  \begin{columns}[T]
+    \begin{column}{0.46\textwidth}
+      \begin{exampleblock}{Left}
+        Text in the left column, with a little
+        inline math: $f(\x) = \X\tp\beta$.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{table}
+        \centering
+        \small
+        \begin{tabular}{cc}
+          \toprule
+          $x$ & $y$ \\
+          \midrule
+          1 & 2.0 \\
+          2 & 4.1 \\
+          3 & 5.9 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\section{Math and Figures}
+
+\begin{frame}{An equation}
+  The least-squares estimate is
+  \begin{equation*}
+    \yhat = \X\,(\X\tp\X)^{-1}\X\tp\y,
+    \qquad \x \in \real^{p},
+  \end{equation*}
+  and the residual variance is estimated by
+  \begin{equation*}
+    \hat\sigma^{2} = \frac{1}{n-p}\lVert \y - \yhat \rVert^{2}.
+  \end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Code listings}
+  Load \texttt{listings} or \texttt{minted} yourself; the theme stays out of
+  the way.
+  \begin{verbatim}
+\usetheme[nofootline]{Abisha}
+  \end{verbatim}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}
+  \centering
+  \Huge Thank you
+
+  \vspace{0.5cm}
+  \normalsize \insertauthor
+\end{frame}
+
+\end{document}

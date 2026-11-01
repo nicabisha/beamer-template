@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: starter
+            file: main.tex
+          - name: example
+            file: examples/akm-pekan6.tex
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile ${{ matrix.file }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ matrix.file }}
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-${{ matrix.name }}
+          path: build/*.pdf
+          if-no-files-found: error

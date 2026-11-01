@@ -1,0 +1,13 @@
+# Normalise line endings so Windows checkouts do not turn every edit into a
+# full-file rewrite.
+* text=auto eol=lf
+
+# Binary assets must stay untouched.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.gif binary
+
+# Keep the licence and the compiled examples verbatim.
+LICENSE -text

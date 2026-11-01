@@ -1,0 +1,72 @@
+%% beamerthemeAbisha.sty
+%% Copyright 2026 Nicholas Abisha
+%%
+%% This work may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license
+%% or (at your option) any later version. The latest version of this
+%% license is in
+%%     https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% The Current Maintainer of this work is Nicholas Abisha.
+%%
+%% This work consists of the file beamerthemeAbisha.sty.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeAbisha}%
+  [2026/11/01 v1.0.0 Abisha: a clean beamer theme for lectures and talks]
+
+\mode<presentation>
+
+%% ---------------------------------------------------------------------------
+%% Options
+%% ---------------------------------------------------------------------------
+%% Boadilla already draws a footer with the author, the short title and the
+%% frame number. \usetheme[nofootline]{Abisha} removes it, which buys back a
+%% little vertical space on very dense slides.
+\newif\ifabisha@nofootline
+\abisha@nofootlinefalse
+\DeclareOptionBeamer{nofootline}{\abisha@nofootlinetrue}
+\ProcessOptionsBeamer
+
+%% ---------------------------------------------------------------------------
+%% Base look
+%% ---------------------------------------------------------------------------
+\usetheme{Boadilla}
+\usecolortheme{beaver}
+\usefonttheme{serif}
+
+% No navigation symbols: the footer (if enabled) carries the progress instead.
+\setbeamertemplate{navigation symbols}{}
+
+% Justified body text; opt out in a deck with \raggedright if you prefer it.
+\RequirePackage{ragged2e}
+\justifying
+
+%% ---------------------------------------------------------------------------
+%% Logo helper
+%% ---------------------------------------------------------------------------
+%% \abishalogo[width]{path} puts a logo on the title page. The file is looked
+%% up at compile time, so a clone without a logo still compiles; you only get
+%% a warning when the file is missing.
+%%
+%%     \abishalogo{images/logo.png}
+%%     \abishalogo[2.2cm]{images/logo.png}
+\newcommand{\abishalogo}[2][1.6cm]{%
+  \IfFileExists{#2}%
+    {\titlegraphic{\includegraphics[width=#1]{#2}}}%
+    {\PackageWarning{beamerthemeAbisha}%
+       {Logo `#2' not found, so no title graphic is drawn}}%
+}
+
+%% ---------------------------------------------------------------------------
+%% Optional removal of the footer
+%% ---------------------------------------------------------------------------
+\ifabisha@nofootline
+  \setbeamertemplate{footline}{}
+\fi
+
+\mode<all>
+\endinput
