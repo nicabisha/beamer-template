@@ -46,6 +46,14 @@
 \justifying
 
 %% ---------------------------------------------------------------------------
+%% Blocks
+%% ---------------------------------------------------------------------------
+% Boadilla's `rose' colour theme paints the default `block' in the red
+% `structure' tint. Restyle it to match the green `example' block instead.
+\setbeamercolor{block title}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+
+%% ---------------------------------------------------------------------------
 %% Logo helper
 %% ---------------------------------------------------------------------------
 %% \abishalogo[width]{path} puts a logo on the title page. The file is looked
