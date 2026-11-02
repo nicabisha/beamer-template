@@ -26,7 +26,6 @@
 \newcommand{\x}{\mathbf{x}}
 \newcommand{\y}{\mathbf{y}}
 \newcommand{\X}{\mathbf{X}}
-\newcommand{\tp}{\mathsf{T}}
 \newcommand{\yhat}{\widehat{y}}
 
 % ---------------------------------------------------------------------------
@@ -77,7 +76,7 @@
     \begin{column}{0.46\textwidth}
       \begin{exampleblock}{Left}
         Text in the left column, with a little
-        inline math: $f(\x) = \X\tp\beta$.
+        inline math: $f(\x) = \X\top\beta$.
       \end{exampleblock}
     \end{column}
     \begin{column}{0.46\textwidth}
@@ -104,7 +103,7 @@
 \begin{frame}{An equation}
   The least-squares estimate is
   \begin{equation*}
-    \yhat = \X\,(\X\tp\X)^{-1}\X\tp\y,
+    \yhat = \X\,(\X\top\X)^{-1}\X\top\y,
     \qquad \x \in \real^{p},
   \end{equation*}
   and the residual variance is estimated by
@@ -124,6 +123,7 @@
 % ---------------------------------------------------------------------------
 \begin{frame}
   \centering
+  \vfill
   \Huge Thank you
 
   \vspace{0.5cm}
