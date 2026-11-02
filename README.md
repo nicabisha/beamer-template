@@ -18,7 +18,7 @@ The fastest route is **Use this template** on GitHub, which gives you a fresh
 copy without this repository's history. Or clone it:
 
 ```powershell
-git clone https://github.com/<you>/beamer-template.git my-talk
+git clone https://github.com/nicabisha/beamer-template.git my-talk
 cd my-talk
 latexmk main.tex        # -> build/main.pdf
 ```
