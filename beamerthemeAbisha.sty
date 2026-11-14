@@ -46,6 +46,16 @@
 \justifying
 
 %% ---------------------------------------------------------------------------
+%% Fonts and Colors
+%% ---------------------------------------------------------------------------
+% The cover page title is bold by default in the AKM format.
+\setbeamerfont{title}{series=\bfseries}
+
+% Institute text defaults to purple, matching the AKM cover formatting.
+\definecolor{abishapurple}{named}{purple}
+\setbeamercolor{institute}{fg=abishapurple}
+
+%% ---------------------------------------------------------------------------
 %% Blocks
 %% ---------------------------------------------------------------------------
 % Boadilla's `rose' colour theme paints the default `block' in the red
@@ -56,19 +66,27 @@
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
 
 %% ---------------------------------------------------------------------------
-%% Logo helper
+%% Logo helper and Title Page
 %% ---------------------------------------------------------------------------
-%% \abishalogo[width]{path} puts a logo on the title page. The file is looked
-%% up at compile time, so a clone without a logo still compiles; you only get
-%% a warning when the file is missing.
-%%
-%%     \abishalogo{images/logo.png}
-%%     \abishalogo[2.2cm]{images/logo.png}
+%% \abishalogo[width]{path} sets a logo on the title page, placed between the
+%% author and the institute text, exactly as formatted in the AKM lecture deck.
 \newcommand{\abishalogo}[2][1.6cm]{%
-  \IfFileExists{#2}%
-    {\titlegraphic{\includegraphics[width=#1]{#2}}}%
-    {\PackageWarning{beamerthemeAbisha}%
-       {Logo `#2' not found, so no title graphic is drawn}}%
+  \gdef\abisha@logo@path{#2}%
+  \gdef\abisha@logo@width{#1}%
+}
+
+\setbeamertemplate{institute}{%
+  \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{institute}%
+    \usebeamerfont{institute}%
+    \ifx\abisha@logo@path\@undefined\else%
+      \IfFileExists{\abisha@logo@path}{%
+        \includegraphics[width=\abisha@logo@width]{\abisha@logo@path}\medskip\\%
+      }{%
+        \PackageWarning{beamerthemeAbisha}{Logo `\abisha@logo@path' not found}%
+      }%
+    \fi%
+    \insertinstitute\par%
+  \end{beamercolorbox}%
 }
 
 %% ---------------------------------------------------------------------------

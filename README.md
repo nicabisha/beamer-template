@@ -26,16 +26,19 @@ latexmk main.tex        # -> build/main.pdf
 Then edit the metadata block at the top of `main.tex`:
 
 ```latex
-\documentclass[aspectratio=169]{beamer}
+\documentclass{beamer}
 \usetheme{Abisha}
 
-\title[Short Title]{Your Talk Title}
-\subtitle{A subtitle, if you want one}
-\author[Your Name]{Your Name}
-\institute[IPB]{Program Studi Matematika\\ IPB University}
-\date{\today}
+\title[AKM Pekan 6: Deep Learning II]{\textbf{Memproses Gambar dan Teks}}
+\subtitle{Convolutional \& Recurrent Neural Networks}
+\author[Nicholas Abisha]{$\alpha\beta\iota\sigma\eta\alpha$}
+\institute[IPB]{%
+  Program Studi Matematika\\
+  SSMI IPB University\\
+  Bogor, INDONESIA}
+\date{MAT1421 2026/2027}
 
-\abishalogo{images/logo_ipb.png}   % optional; skipped with a warning if absent
+\abishalogo{images/logo_ipb.png}   % optional; placed between author and institute
 ```
 
 Everything else in `main.tex` is an example — delete what you do not need.
@@ -63,8 +66,10 @@ $env:TEXINPUTS = "D:\path\to\beamer-template;" + $env:TEXINPUTS
 \abishalogo[2.2cm]{images/logo.png}
 ```
 
-The path is looked up at compile time, so a copy of the template without a logo
-still compiles — you get a warning instead of an error.
+The logo is placed on the cover page between the author and the institute text,
+matching the AKM lecture presentation layout. The path is looked up at compile
+time, so a copy of the template without a logo still compiles — you get a
+warning instead of an error.
 
 ### Justified text
 
