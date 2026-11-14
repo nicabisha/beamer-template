@@ -4,7 +4,7 @@ A small Beamer theme for lectures and talks. It builds on `Boadilla`'s layout
 and the `beaver` palette: serif body text, justified paragraphs, no navigation
 symbols, and a footer carrying the author, short title and frame number.
 
-![Preview](preview.png)
+<p align="center"><img src="preview.png" alt="Preview" /></p>
 
 ## Requirements
 
